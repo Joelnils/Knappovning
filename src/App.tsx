@@ -1,19 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-import BlueButton from './BlueButton';
-import RedButton from './RedButton';
-import YellowButton from './YellowButton';
+import {Buttons} from './BlueButton';
 
 
-const App = () => (
-  <>
-    <h2>Buttons</h2>
-    <BlueButton>En blå knapp</BlueButton>
-    <RedButton>En röd knapp</RedButton>
-    <YellowButton>En gul knapp</YellowButton>
-  </>
-)
+
+const App = () => {
+  const handleClick = () => {
+    console.log('Knappen klickades!');
+  };
+
+  return (
+    <div>
+      <Buttons color="blue" text="Blå knapp" onClick={handleClick}  />
+      <Buttons color="red" text="Röd knapp" onClick={handleClick}  />
+      <Buttons color="yellow" text="Gul knapp" onClick={handleClick}  />
+
+    </div>
+  
+  );
+};
+
 
 export default App;

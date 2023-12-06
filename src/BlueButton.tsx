@@ -1,22 +1,23 @@
 import React from 'react';
-import styled from 'styled-components';
+interface Buttoncolors{
+    color: string,
+    text: string,
+    onClick: () => void;
+}
 
-const StyledButton = styled.button`
-    background-color: blue;
-    color: white;
-    padding: 10px;
-    border: 0;
-    border-radius: 5px; 
-    font-size: 20px;
-    cursor: pointer;
+export const Buttons: React.FC<Buttoncolors> = ({ color, text, onClick }) => {
+    const style = {
+      backgroundColor: color,
+      color: 'white', 
+      padding: '10px', 
+      border: 'none',  
+      cursor: 'pointer' 
+    };
 
-    &:hover {
-        opacity: 0.8;
-    }
-`
 
-const BlueButton = ({ children }: { children: React.ReactNode }) => (
-    <StyledButton>{children}</StyledButton>
-)
-
-export default BlueButton;
+    return (
+        <button style={style} onClick={onClick}>
+          {text}
+        </button>
+      );
+    };
